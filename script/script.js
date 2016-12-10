@@ -49,7 +49,7 @@
 			code.setOption("mode","text/x-c++src");
 	});
   $('button').on('click',function(){
-  		$($(this).attr('data-show')).show('slide');
+  		$($(this).attr('data-show')).show('explode');
   	})
  });
 
