@@ -78,8 +78,8 @@ require_once("codejudge.php");
 <div class="container">
         <div class="row centered-form">
         <div class="col-xs-12">
-        	<div class="panel panel-default" style="box-shadow: 1px 1px 5px gray;">
-        		<div class="panel-heading">
+        	<div class="panel panel-default" style="box-shadow: 1px 1px 6px black;">
+        		<div class="panel-heading" style="background-color: #4a148c; color: #fff;">
 			    		<h3 class="panel-title">Write Code Below <small>created by Arpan Pathak</small></h3>
 			 			</div>
 			 			<div class="panel-body">
@@ -188,7 +188,7 @@ require_once("codejudge.php");
 			    	</div>
 	    		</div> 
 
-    			<div style="text-align: left; border-radius: 3px; border: 1px solid #16a085; box-shadow: 0px 0px 2px #16a085;">
+    			<div style="text-align: left; border-radius: 3px; border: 1px solid #16a085; box-shadow: 0px 0px 2px #16a085; background: #fff; ">
     			Output : <br />
     			<span id="load"> </span>
     			<div id="output"></div>	
