@@ -49,6 +49,8 @@
 			code.setOption("mode","text/x-c++src");
 		else if(l=="python2" || l=="python3")
 			code.setOption("mode","python");
+		else if(l=="ruby")
+			code.setOption("mode","text/x-ruby");
 	});
   $('button').on('click',function(){
   		$($(this).attr('data-show')).show('explode');

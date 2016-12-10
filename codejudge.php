@@ -96,6 +96,18 @@ function codejudge($team_id,$code_file,$user_code_snippet,$lan,$tle,$input_file,
 		if($time>$tle) return tle."<b>Execution Time : $time ms";
 		return "<b>Execution Time : $time ms<br >".nl2br($output)."<br>".checkOutput($output,$output_file);	
 	}
+	else if($lan=="ruby")
+	{
+		$f_name=$dir_name."/".$code_file.".rb";
+		$fp=fopen($f_name, "w");
+		fwrite($fp,$final_code);
+		fclose($fp);
+		$time= round(microtime(true) * 1000);
+		$output=shell_exec("timeout ".($tle/1000)." ruby $f_name<"."codes/input/".$input_file." 2>&1");
+		$time= round(microtime(true) * 1000)-$time;		
+		if($time>$tle) return tle."<b>Execution Time : $time ms";
+		return "<b>Execution Time : $time ms<br >".nl2br($output)."<br>".checkOutput($output,$output_file);	
+	}
 }
 
 

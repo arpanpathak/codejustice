@@ -68,6 +68,7 @@
 	<script src="codemirror/addon/hint/show-hint.js"></script>
 	<script src="codemirror/mode/clike/clike.js" type="text/javascript"></script>
 	<script src="codemirror/mode/python/python.js"></script>
+	<script src="codemirror/mode/ruby/ruby.js"></script>
 	<!--end of codemirror files -->
 <?php
 require_once("codejudge.php");
@@ -89,14 +90,14 @@ require_once("codejudge.php");
 			    			<div class="row">
 			    				<div class="col-xs-12 col-sm-6 col-md-6">
 			    					<div class="form-group">
-			                <input type="text" id="teamname" class="form-control input-sm" placeholder="Team Name" required><small>This Submission is available to server's submission/team-name/ directory
+			                <input type="text" id="teamname" class="form-control input-sm" placeholder="Team Name" required><small>This Submission is available to server's submission/team-name/ directory </small>
 			                	<input type="text" id="codefile" class="form-control input-sm" placeholder="File Name" required>
 			    					</div>
 			    				</div>
 			    			</div>
 
 			    			<div class="form-group">
-			    				<input type="text" id="ipfile" class="form-control input-sm" placeholder="Test Case Input File Name" required>
+			    				<input type="text" id="ipfile" class="form-control input-sm " placeholder="Test Case Input File Name" required>
 			    			</div>
 
 			    			<div class="row">
@@ -129,6 +130,7 @@ require_once("codejudge.php");
 			    							<option value="java">Java 8</option>
 			    							<option value="python2">Python 2+</option>
 			    							<option value="python3">Python 3+</option>
+			    							<option value="ruby">Ruby 2.3</option>
 			    			</select>
 			    			<b>Editor theme:</b> <select id=select>
 							    <option selected>default</option>
@@ -214,7 +216,7 @@ require_once("codejudge.php");
     			<li>All the Expected file must be kept inside server's codes/output/ directory.
     				You just need to give the input file name followed by extension </li>
     			<li>Please provide execution time limit in milliseconds</li>
-    			<li>You can chose any language among C,C++,Java,Python2, and Python3 </li>
+    			<li>You can chose any language among C,C++,Java,Python2,Python3 and Ruby </li>
     		</ul>
     	</div>
     	<div class="popup-footer">
