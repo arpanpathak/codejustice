@@ -45,8 +45,10 @@
 		
 		if(l=="java")
 			code.setOption("mode","text/x-java");
-		else
+		else if(l=="cpp")
 			code.setOption("mode","text/x-c++src");
+		else if(l=="python2" || l=="python3")
+			code.setOption("mode","python");
 	});
   $('button').on('click',function(){
   		$($(this).attr('data-show')).show('explode');

@@ -67,6 +67,7 @@
 	<link rel="stylesheet" href="codemirror/addon/hint/show-hint.css">
 	<script src="codemirror/addon/hint/show-hint.js"></script>
 	<script src="codemirror/mode/clike/clike.js" type="text/javascript"></script>
+	<script src="codemirror/mode/python/python.js"></script>
 	<!--end of codemirror files -->
 <?php
 require_once("codejudge.php");
@@ -126,6 +127,8 @@ require_once("codejudge.php");
 			    			<select id="language" class="plang-theme">
 			    							<option value="cpp">C/C++ 14</option>
 			    							<option value="java">Java 8</option>
+			    							<option value="python2">Python 2+</option>
+			    							<option value="python3">Python 3+</option>
 			    			</select>
 			    			<b>Editor theme:</b> <select id=select>
 							    <option selected>default</option>
@@ -211,7 +214,7 @@ require_once("codejudge.php");
     			<li>All the Expected file must be kept inside server's codes/output/ directory.
     				You just need to give the input file name followed by extension </li>
     			<li>Please provide execution time limit in milliseconds</li>
-    			<li>You can chose any language among C,C++,Java and Python </li>
+    			<li>You can chose any language among C,C++,Java,Python2, and Python3 </li>
     		</ul>
     	</div>
     	<div class="popup-footer">
