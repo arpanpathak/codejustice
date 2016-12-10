@@ -11,7 +11,7 @@
         indentWithTabs: true,
         autoCloseTags: true,
         autoCloseBrackets: true,
-    	theme: "eclipse"
+    	theme: "default"
 		});
  	code.refresh();
  	$('#check').click(function()
@@ -48,6 +48,9 @@
 		else
 			code.setOption("mode","text/x-c++src");
 	});
+  $('button').on('click',function(){
+  		$($(this).attr('data-show')).show('slide');
+  	})
  });
 
 function hasItem(item){

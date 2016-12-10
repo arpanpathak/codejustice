@@ -12,7 +12,7 @@
       <script type="text/javascript" src="script/script.js"></script>
       <script type="text/javascript" src="codemirror/mode/javascript/javascript.js"></script>
 
-	  <!-- icnluding codemirror files !-->
+	  <!-- including codemirror files !-->
 	<script src="codemirror/mode/javascript/javascript.js"></script>
 	<link rel="stylesheet" type="text/css" href="codemirror/theme/blackboard.css">
 	<link rel="stylesheet" href="codemirror/theme/3024-day.css">
@@ -72,7 +72,8 @@ require_once("codejudge.php");
 ?>
 <head>
 <body>
-<header><h2>Test CodeJudge Codejustice! </h2></header>
+<header><h2><i class="fa fa-file-code-o" aria-hidden="true"></i>
+ Test CodeJudge Codejustice! </h2></header>
 <hr />
 <div class="container">
         <div class="row centered-form">
@@ -93,13 +94,13 @@ require_once("codejudge.php");
 			    			</div>
 
 			    			<div class="form-group">
-			    				<input type="text" id="ipfile" class="form-control input-sm" placeholder="Input File Name" required>
+			    				<input type="text" id="ipfile" class="form-control input-sm" placeholder="Test Case Input File Name" required>
 			    			</div>
 
 			    			<div class="row">
 			    				<div class="col-xs-6 col-sm-6 col-md-6">
 			    					<div class="form-group">
-			    						<input type="text" id="opfile" class="form-control input-sm" placeholder="Output File Name" required>
+			    						<input type="text" id="opfile" class="form-control input-sm" placeholder="Expected Output File Name" required>
 			    					</div>
 			    				</div>
 			    				<div class="col-xs-6 col-sm-6 col-md-6">
@@ -178,7 +179,7 @@ require_once("codejudge.php");
 			    				<i class="fa fa-play" aria-hidden="true"></i>
 			    				EXECUTE
 			    			</button>
-			    			<button type="button" id="info" class="btn-flat-blue">
+			    			<button type="button" id="info" class="btn-flat-blue" data-show="#inst">
 			    				<i class="fa fa-play" aria-hidden="true"></i>
 			    				Info
 			    			</button>
@@ -196,9 +197,24 @@ require_once("codejudge.php");
     		
     	</div>
     </div>
-    <script>
-    $(function(){
-    	
-    });
-    </script>
+    <div class="popup medium" id="inst">
+    	<div class="popup-head">
+    		Instructions
+    	</div>
+    	<div class="popup-content" style="text-align: left;">
+    		<ul style="font-size: 20px;">
+    			<li>You can get this submission in the server's submission/team-name/ directory </li>
+    			<li>Please don't give any extension to File Name Field(the name of the submission file)</li>
+    			<li>All the test case input file must be kept inside server's codes/input/ directory.
+    				You just need to give the input file name followed by extension </li>
+    			<li>All the Expected file must be kept inside server's codes/output/ directory.
+    				You just need to give the input file name followed by extension </li>
+    			<li>Please provide execution time limit in milliseconds</li>
+    			<li>You can chose any language among C,C++,Java and Python </li>
+    		</ul>
+    	</div>
+    	<div class="popup-footer">
+    		<button type="button" class="btn-flat-orange" onclick="$('.popup').fadeOut('slow');">CLOSE</button>
+    	</div>
+    </div>
     </body>

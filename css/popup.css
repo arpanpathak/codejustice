@@ -5,12 +5,11 @@
 	box-shadow: 2px 4px 15px black;
 	border-top-right-radius: 8px;
 	border-top-left-radius: 8px;
-	display: block;
 	margin: 0 auto;
 	min-height: 500px;
 	margin-left: 20%;
 	z-index: 999;
-	
+	display: none;
 }
 .popup-head
 {
