@@ -70,7 +70,7 @@ function codejudge($team_id,$code_file,$user_code_snippet,$lan,$tle,$input_file,
 			return ce." ".file_get_contents($dir_name."/error.txt");
 		}
 		if($time>$tle) return tle."<b>Execution Time : $time ms";
-		return "<b>Execution Time : $time ms<br >".nl2br($output);	
+		return "<b>Execution Time : $time ms<br >".nl2br($output)."<br>".checkOutput($output,$output_file);
 	}
 }
 
