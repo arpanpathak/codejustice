@@ -111,6 +111,87 @@ function codejudge($team_id,$code_file,$user_code_snippet,$lan,$tle,$input_file,
 }
 
 
+// Codejudge for windows plarform....
+function codejudge_windows($team_id,$code_file,$user_code_snippet,$lan,$tle,$input_file,$output_file)
+{
+	if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') 
+		return codejudge_windows($team_id,$code_file,$user_code_snippet,$lan,$tle,$input_file,$output_file);
+	$dir_name="submissions/".$team_id;
+	if (!is_dir($dir_name)) {
+    //create the directory
+    		mkdir($dir_name,0777,true);         //permission
+	}   
+	$final_code=$user_code_snippet;
+	if($lan=="cpp" or $lan=="c")
+	{
+		$f_name=$dir_name."/".$code_file.".cpp";
+		$fp=fopen($f_name, "w");
+		fwrite($fp,$final_code);
+		fclose($fp);
+		shell_exec("g++ -std=c++11 -static-libstdc++ ".$f_name." -o ".$dir_name."/code.exe 2>".$dir_name."/error.txt");
+		$time= round(microtime(true) * 1000);
+		$output=shell_exec("powershell ".$dir_name."/code.exe<"."codes/input/".$input_file." 2>&1");
+		$time= round(microtime(true) * 1000)-$time;		
+		if(@!unlink($dir_name."/code.exe")){
+			return ce." ".file_get_contents($dir_name."/error.txt");
+		}
+		if($time>$tle) return tle."<b>Execution Time : $time ms";
+		return "<b>Execution Time : $time ms<br >".nl2br($output)."<br>".checkOutput($output,$output_file);
+	}
+	else if($lan=="java")
+	{
+		$f_name=$dir_name."/".$code_file.".java";
+		$fp=fopen($f_name, "w");
+		fwrite($fp,$final_code);
+		fclose($fp);
+		shell_exec("javac ".$f_name." 2>".$dir_name."/error.txt");
+		$time= round(microtime(true) * 1000);
+		$output=shell_exec("powershell java -classpath ".$dir_name." ".$code_file."<"."codes/input/".$input_file." 2>&1");
+		$time= round(microtime(true) * 1000)-$time;		
+		if(@!unlink($dir_name."/".$code_file.".class")){
+			return ce." ".file_get_contents($dir_name."/error.txt");
+		}
+		if($time>$tle) return tle."<b>Execution Time : $time ms";
+		return "<b>Execution Time : $time ms<br >".nl2br($output)."<br>".checkOutput($output,$output_file);
+	}
+	else if($lan=="python2")
+	{
+		$f_name=$dir_name."/".$code_file.".py";
+		$fp=fopen($f_name, "w");
+		fwrite($fp,$final_code);
+		fclose($fp);
+		$time= round(microtime(true) * 1000);
+		$output=shell_exec("powershell python $f_name<"."codes/input/".$input_file." 2>&1");
+		$time= round(microtime(true) * 1000)-$time;		
+		if($time>$tle) return tle."<b>Execution Time : $time ms";
+		return "<b>Execution Time : $time ms<br >".nl2br($output)."<br>".checkOutput($output,$output_file);	
+	}
+	else if($lan=="python3")
+	{
+		$f_name=$dir_name."/".$code_file.".py";
+		$fp=fopen($f_name, "w");
+		fwrite($fp,$final_code);
+		fclose($fp);
+		$time= round(microtime(true) * 1000);
+		$output=shell_exec("powershell python3 $f_name<"."codes/input/".$input_file." 2>&1");
+		$time= round(microtime(true) * 1000)-$time;		
+		if($time>$tle) return tle."<b>Execution Time : $time ms";
+		return "<b>Execution Time : $time ms<br >".nl2br($output)."<br>".checkOutput($output,$output_file);	
+	}
+	else if($lan=="ruby")
+	{
+		$f_name=$dir_name."/".$code_file.".rb";
+		$fp=fopen($f_name, "w");
+		fwrite($fp,$final_code);
+		fclose($fp);
+		$time= round(microtime(true) * 1000);
+		$output=shell_exec("powershell ruby $f_name<"."codes/input/".$input_file." 2>&1");
+		$time= round(microtime(true) * 1000)-$time;		
+		if($time>$tle) return tle."<b>Execution Time : $time ms";
+		return "<b>Execution Time : $time ms<br >".nl2br($output)."<br>".checkOutput($output,$output_file);	
+	}
+}
+
 // Pass arguments to codejudge based on data received by ajax request.....
 if(isset($_POST['check']))
 {

@@ -18,7 +18,7 @@
 	box-shadow: 0px 1px 3px lightgray;
 	height: 100px;
 	text-shadow: 1px 2px gray;
-	font-size: 50px;
+	font-size: 30px;
 	font-family: times;
 }
 .popup-content {
@@ -31,14 +31,18 @@
 	min-height: 100px; position: absolute; bottom: 0px;
 	width: 100%;
 }
-.close-btn { color: #fff; font-size: 40px; float: right; text-shadow: 0px 1px 3px black; 
-		 font-family: arial; }
+.close-btn { color: #fff; font-size: 20px; float: right; text-shadow: 0px 1px 3px black; 
+		 font-family: arial; margin-right: 6px; cursor: pointer;}
 .large { width: 80%; }
 .medium { width: 60%; }
 
 /** head colors **/
 .green {
 	background-color: #16a085 ;
+	color: #fff;
+}
+.material {
+	background-color: #4a148c;
 	color: #fff;
 }
 /* buttons */

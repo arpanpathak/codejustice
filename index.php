@@ -204,8 +204,9 @@ require_once("codejudge.php");
     	</div>
     </div>
     <div class="popup medium" id="inst">
-    	<div class="popup-head">
+    	<div class="popup-head material" style="max-height: 50px;">
     		Instructions
+    		<span class="close-btn" onclick="$('#inst').hide('slow');">X</span>
     	</div>
     	<div class="popup-content" style="text-align: left;">
     		<ul style="font-size: 20px;">
