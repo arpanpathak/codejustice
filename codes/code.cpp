@@ -1,4 +1,4 @@
-/** Dijkstra's using priority queue... Time Complexity O(VlogV+E)
+/** Dijkstra's using priority queue... Time Complexity O(ElogV)
  ** @author: Arpan Pathak... **/
 #include <bits/stdc++.h>
 #define inf INT_MAX
