@@ -119,7 +119,7 @@ function codejudge_windows($team_id,$code_file,$user_code_snippet,$lan,$tle,$inp
 		fclose($fp);
 		shell_exec("g++ -std=c++11 -static-libstdc++ ".$f_name." -o ".$dir_name."/code.exe 2>".$dir_name."/error.txt");
 		$time= round(microtime(true) * 1000);
-		$output=shell_exec("powershell ".$dir_name."/code.exe<"."$ip 2>&1");
+		$output=shell_exec("submissions\\$team_id\\code.exe<"."$ip 2>&1");
 		$time= round(microtime(true) * 1000)-$time;		
 		if(@!unlink($dir_name."/code.exe")){
 			return ce." ".file_get_contents($dir_name."/error.txt");
@@ -135,7 +135,7 @@ function codejudge_windows($team_id,$code_file,$user_code_snippet,$lan,$tle,$inp
 		fclose($fp);
 		shell_exec("javac ".$f_name." 2>".$dir_name."/error.txt");
 		$time= round(microtime(true) * 1000);
-		$output=shell_exec("powershell java -classpath ".$dir_name." ".$code_file."<"."$ip 2>&1");
+		$output=shell_exec("java -Xms50m -classpath ".$dir_name." ".$code_file."<"."$ip 2>&1");
 		$time= round(microtime(true) * 1000)-$time;		
 		if(@!unlink($dir_name."/".$code_file.".class")){
 			return ce." ".file_get_contents($dir_name."/error.txt");
@@ -145,24 +145,24 @@ function codejudge_windows($team_id,$code_file,$user_code_snippet,$lan,$tle,$inp
 	}
 	else if($lan=="python2")
 	{
-		$f_name=$dir_name."/".$code_file.".py";
+		$f_name=$dir_name."\\".$code_file.".py";
 		$fp=fopen($f_name, "w");
 		fwrite($fp,$final_code);
 		fclose($fp);
 		$time= round(microtime(true) * 1000);
-		$output=shell_exec("powershell python $f_name<"."$ip 2>&1");
+		$output=shell_exec("python $f_name<"."$ip 2>&1");
 		$time= round(microtime(true) * 1000)-$time;		
 		if($time>$tle) return tle."<b>Execution Time : $time ms";
 		return "<b>Execution Time : $time ms,Your Output : <br >".nl2br($output)."<br />";
 	}
 	else if($lan=="python3")
 	{
-		$f_name=$dir_name."/".$code_file.".py";
+		$f_name=$dir_name."\\".$code_file.".py";
 		$fp=fopen($f_name, "w");
 		fwrite($fp,$final_code);
 		fclose($fp);
 		$time= round(microtime(true) * 1000);
-		$output=shell_exec("powershell python3 $f_name<"."$ip 2>&1");
+		$output=shell_exec("python3 $f_name<"."$ip 2>&1");
 		$time= round(microtime(true) * 1000)-$time;		
 		if($time>$tle) return tle."<b>Execution Time : $time ms";
 		return "<b>Execution Time : $time ms,Your Output : <br >".nl2br($output)."<br />";
@@ -174,7 +174,7 @@ function codejudge_windows($team_id,$code_file,$user_code_snippet,$lan,$tle,$inp
 		fwrite($fp,$final_code);
 		fclose($fp);
 		$time= round(microtime(true) * 1000);
-		$output=shell_exec("powershell ruby $f_name<"."$ip 2>&1");
+		$output=shell_exec("ruby $f_name<"."$ip 2>&1");
 		$time= round(microtime(true) * 1000)-$time;		
 		if($time>$tle) return tle."<b>Execution Time : $time ms";
 		return "<b>Execution Time : $time ms,Your Output : <br >".nl2br($output)."<br />";
