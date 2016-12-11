@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <head>
 	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<title>CodeJudge and IDE</title>
 	<script type="text/javascript" src="script/jquery.js"></script>
 	<script src="css/bootstrap/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap/css/bootstrap.min.css">
@@ -181,6 +182,7 @@ require_once("codejudge.php");
 							    <option>yeti</option>
 							    <option>zenburn</option>
 							</select>
+							<label for="ide">Execute against custom input</label><input type="checkbox" id="ide">
 			    			<button type="button" id="check" class="btn-green">
 			    				<i class="fa fa-play" aria-hidden="true"></i>
 			    				EXECUTE
@@ -189,7 +191,7 @@ require_once("codejudge.php");
 			    				<i class="fa fa-play" aria-hidden="true"></i>
 			    				Info
 			    			</button>
-			    		
+			    			<textarea id="custom_input" class="form-control" style="margin-top: 4px; display: none;" placeholder="Provide Your Input Here."></textarea>
 			    		</form>
 			    	</div>
 	    		</div> 

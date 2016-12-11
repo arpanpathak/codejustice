@@ -18,15 +18,15 @@
     	{ 
     		$('#load').html('<img src="css/load.gif" style="margin: 0 auto; height: 50px; width: 50px;">');
     		$('#output').html("");
-    		$.post("codejudge.php",{ check: 'check',
+    		if($('#ide').prop("checked"))
+    		{
+    			$.post("check.php",{ check: 'check',
     							 teamname: $('#teamname').val(),
     							 codefile: $('#codefile').val(),
     							 code: code.getValue(),
-    							 maincode: $('#maincode').val(),
     							 language: $('#language').val(),
     							 tle: $('#tle').val(),
-    							 ipfile: $('#ipfile').val(),
-    							 opfile: $('#opfile').val() },
+								 input: $('#custom_input').val() },
     				function(data)
     				{
     					$('#load').html("");
@@ -34,6 +34,26 @@
     				}
 
     			);
+    		}
+    		else
+    		{
+	    		$.post("codejudge.php",{ check: 'check',
+	    							 teamname: $('#teamname').val(),
+	    							 codefile: $('#codefile').val(),
+	    							 code: code.getValue(),
+	    							 maincode: $('#maincode').val(),
+	    							 language: $('#language').val(),
+	    							 tle: $('#tle').val(),
+	    							 ipfile: $('#ipfile').val(),
+	    							 opfile: $('#opfile').val() },
+	    				function(data)
+	    				{
+	    					$('#load').html("");
+	    					$('#output').html(data);
+	    				}
+
+	    			);
+    		}
     	});
   $('#select').on('change',function(){
   	var input = document.getElementById("select");
@@ -55,6 +75,15 @@
   $('button').on('click',function(){
   		$($(this).attr('data-show')).show('explode');
   	})
+  $('#ide').on('click',function(){
+  		if($(this).prop("checked"))
+  		{
+  			$('#custom_input').show();
+  		}
+  		else 
+  			$('#custom_input').hide();
+
+  	});
  });
 
 function hasItem(item){
