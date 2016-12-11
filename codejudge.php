@@ -34,6 +34,10 @@ function checkOutput($output,$output_file)
 // Main CodeJudge function....
 function codejudge($team_id,$code_file,$user_code_snippet,$lan,$tle,$input_file,$output_file)
 {
+
+	if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') 
+		return codejudge_windows($team_id,$code_file,$user_code_snippet,$lan,$tle,$input_file,$output_file);
+	
 	$dir_name="submissions/".$team_id;
 	if (!is_dir($dir_name)) {
     //create the directory
@@ -114,9 +118,6 @@ function codejudge($team_id,$code_file,$user_code_snippet,$lan,$tle,$input_file,
 // Codejudge for windows plarform....
 function codejudge_windows($team_id,$code_file,$user_code_snippet,$lan,$tle,$input_file,$output_file)
 {
-	if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') 
-		return codejudge_windows($team_id,$code_file,$user_code_snippet,$lan,$tle,$input_file,$output_file);
-	$dir_name="submissions/".$team_id;
 	if (!is_dir($dir_name)) {
     //create the directory
     		mkdir($dir_name,0777,true);         //permission
