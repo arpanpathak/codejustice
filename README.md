@@ -16,7 +16,7 @@ Using codejustice is super easy. You just need to import the codejudge.php file 
 Here you need to pass all suitable parameters
 
  - `$team_id : `
- `team_id` is the name of the directory where all the codes of that team or any user is located. All of such teams directories are available at `submissions` directory of this project .This directory is protected by `.htacces` from the web crawlers.
+ `team_id` is the name of the directory where all the codes of that team or any user is located.This directory will automatically be created if doesn't exist. All of such teams directories are available at `submissions` directory of this project .This directory is protected by `.htacces` from the web crawlers.
  - `$code_file`:
 	 it's the name of the file for the current submission. Please don't write any extension to it. Extension will automatically be added based on the programming language. The current submission is available at server's submissions/team_id/ directory by this file name
  - $user_code`
