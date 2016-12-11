@@ -117,7 +117,7 @@ function codejudge_windows($team_id,$code_file,$user_code_snippet,$lan,$tle,$inp
 		$fp=fopen($f_name, "w");
 		fwrite($fp,$final_code);
 		fclose($fp);
-		shell_exec("g++ -std=c++11 -static-libstdc++ ".$f_name." -o ".$dir_name."/code.out 2>".$dir_name."/error.txt");
+		shell_exec("g++ -std=c++11 -static-libstdc++ ".$f_name." -o ".$dir_name."/code.exe 2>".$dir_name."/error.txt");
 		$time= round(microtime(true) * 1000);
 		$output=shell_exec("powershell ".$dir_name."/code.exe<"."$ip 2>&1");
 		$time= round(microtime(true) * 1000)-$time;		
